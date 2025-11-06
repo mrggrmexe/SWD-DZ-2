@@ -1,0 +1,12 @@
+/Users/mrggrm/Documents/GitHub/SWD-DZ-2/BankHSE/Domain/bin/Debug/net8.0/Domain.deps.json
+/Users/mrggrm/Documents/GitHub/SWD-DZ-2/BankHSE/Domain/bin/Debug/net8.0/Domain.dll
+/Users/mrggrm/Documents/GitHub/SWD-DZ-2/BankHSE/Domain/bin/Debug/net8.0/Domain.pdb
+/Users/mrggrm/Documents/GitHub/SWD-DZ-2/BankHSE/Domain/obj/Debug/net8.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mrggrm/Documents/GitHub/SWD-DZ-2/BankHSE/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache
+/Users/mrggrm/Documents/GitHub/SWD-DZ-2/BankHSE/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs
+/Users/mrggrm/Documents/GitHub/SWD-DZ-2/BankHSE/Domain/obj/Debug/net8.0/Domain.csproj.CoreCompileInputs.cache
+/Users/mrggrm/Documents/GitHub/SWD-DZ-2/BankHSE/Domain/obj/Debug/net8.0/Domain.sourcelink.json
+/Users/mrggrm/Documents/GitHub/SWD-DZ-2/BankHSE/Domain/obj/Debug/net8.0/Domain.dll
+/Users/mrggrm/Documents/GitHub/SWD-DZ-2/BankHSE/Domain/obj/Debug/net8.0/refint/Domain.dll
+/Users/mrggrm/Documents/GitHub/SWD-DZ-2/BankHSE/Domain/obj/Debug/net8.0/Domain.pdb
+/Users/mrggrm/Documents/GitHub/SWD-DZ-2/BankHSE/Domain/obj/Debug/net8.0/ref/Domain.dll
