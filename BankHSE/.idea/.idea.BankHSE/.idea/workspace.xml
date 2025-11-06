@@ -9,9 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1ab53ca3-b7ec-48b1-8f5c-6c830b80e830" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BankHSE/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BankHSE/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/AddAccountCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/AddAccountCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/AddCategoryCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/AddCategoryCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/AddOperationCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/AddOperationCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfo.cs" afterDir="false" />
@@ -49,13 +46,13 @@
   "keyToString": {
     ".NET Project.BankConsoleApp.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "ConsoleAppAddCommandsImprove",
+    "git-widget-placeholder": "Improve",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.environmentSetup",
+    "settings.editor.selected.configurable": "advanced.settings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -88,7 +85,8 @@
       <option name="presentableId" value="Default" />
       <updated>1762438748032</updated>
       <workItem from="1762438749505" duration="8566000" />
-      <workItem from="1762463784996" duration="2188000" />
+      <workItem from="1762463784996" duration="2617000" />
+      <workItem from="1762466460953" duration="1052000" />
     </task>
     <servers />
   </component>
@@ -96,7 +94,62 @@
     <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="parent">
+                    <value>
+                      <list>
+                        <option value="0" />
+                        <option value="1" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="GRAPH_OPTIONS">
+                <list>
+                  <option value="FirstParent" />
+                </list>
+              </option>
+              <option name="HIGHLIGHTERS">
+                <map>
+                  <entry key="CURRENT_BRANCH" value="false" />
+                  <entry key="MERGE_COMMITS" value="true" />
+                  <entry key="MY_COMMITS" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
