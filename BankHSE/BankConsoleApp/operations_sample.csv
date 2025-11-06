@@ -1,0 +1,4 @@
+type,accountId,amount,date,categoryId,description
+Income,3ad6f88a-1c15-2bb7-a56c-ааcc301ac166,100000,2025-09-01,<ID_ЗАРПЛАТА>,Зарплата
+Expense,3ad6f88a-1c15-2bb7-a56c-ааcc301ac166,2403,2025-09-01,<ID_ПРОДУКТЫ>,Продукты
+Expense,3ad6f88a-1c15-2bb7-a56c-ааcc301ac166,1458,2025-09-02,<ID_ТРАНСПОРТ>,Транспорт
