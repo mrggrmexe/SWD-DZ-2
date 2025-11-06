@@ -10,7 +10,7 @@ namespace Components.Command
     /// </summary>
     public class CommandInvoker
     {
-        private readonly ConcurrentDictionary<string, ICommand> _commands;
+        private readonly ConcurrentDictionary<string, ICommand?> _commands;
         private readonly Action<string>? _log;
         private readonly Action<Exception>? _errorHandler;
 
@@ -18,7 +18,7 @@ namespace Components.Command
         /// <param name="errorHandler">Необязательный обработчик ошибок выполнения команд.</param>
         public CommandInvoker(Action<string>? log = null, Action<Exception>? errorHandler = null)
         {
-            _commands = new ConcurrentDictionary<string, ICommand>(StringComparer.OrdinalIgnoreCase);
+            _commands = new ConcurrentDictionary<string, ICommand?>(StringComparer.OrdinalIgnoreCase);
             _log = log;
             _errorHandler = errorHandler;
         }
@@ -27,7 +27,7 @@ namespace Components.Command
         /// Регистрирует или перезаписывает команду по её имени.
         /// Имя не должно быть пустым.
         /// </summary>
-        public void Register(ICommand command)
+        public void Register(ICommand? command)
         {
             if (command is null)
                 throw new ArgumentNullException(nameof(command));

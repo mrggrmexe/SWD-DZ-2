@@ -8,7 +8,7 @@ namespace BankConsoleApp.Commands
     {
         private readonly CommandInvoker _invoker;
 
-        public HelpCommand(CommandInvoker invoker)
+        public HelpCommand(CommandInvoker? invoker)
         {
             _invoker = invoker ?? throw new ArgumentNullException(nameof(invoker));
         }
