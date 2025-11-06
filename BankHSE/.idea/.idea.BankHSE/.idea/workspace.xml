@@ -8,20 +8,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ab53ca3-b7ec-48b1-8f5c-6c830b80e830" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Tests/BankAccountTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/CachedRepositoryProxyTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/DomainFactoryTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/OperationCsvImporterTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/TimingCmdDecoratorTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BankHSE/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BankHSE/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Components.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Components.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/obj/Components.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Components/obj/Components.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Components/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Components/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Components/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Components/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Infrastructure.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/obj/Debug/net8.0/Infrastructure.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/obj/Debug/net8.0/Infrastructure.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/obj/Debug/net8.0/Infrastructure.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/obj/Debug/net8.0/Infrastructure.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/obj/Infrastructure.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/obj/Infrastructure.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tests/obj/Debug/net9.0/Tests.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/obj/Debug/net9.0/Tests.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tests/obj/Debug/net9.0/Tests.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/obj/Debug/net9.0/Tests.AssemblyInfoInputs.cache" afterDir="false" />
     </list>
@@ -47,7 +53,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Tests",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -85,7 +91,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1762438748032</updated>
-      <workItem from="1762438749505" duration="6732000" />
+      <workItem from="1762438749505" duration="7032000" />
     </task>
     <servers />
   </component>
