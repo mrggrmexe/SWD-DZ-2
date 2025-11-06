@@ -11,25 +11,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BankHSE/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BankHSE/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Abstraction/IRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Abstraction/IRepo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Abstraction/IReportProc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Abstraction/IReportProc.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Command/CommandInvoker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Command/CommandInvoker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Command/ICommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Command/ICommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Command/TimingCmdDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Command/TimingCmdDecorator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Export/CsvExpProc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Export/CsvExpProc.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Export/IExpProc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Export/IExpProc.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Service/AccountService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Service/AccountService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Service/AnalysisService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Service/AnalysisService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Service/CategoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Service/CategoryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Service/ExportService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Service/ExportService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Service/OperationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Service/OperationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Service/ReportProc/AmountDescProc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Service/ReportProc/AmountDescProc.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Service/ReportProc/NameAscProc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Service/ReportProc/NameAscProc.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Template/AccountCsvImporter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Template/AccountCsvImporter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Template/ImportTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Template/ImportTemplate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Template/OperationCsvImporter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Template/OperationCsvImporter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entity/BankAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entity/BankAccount.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entity/Category.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entity/Category.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entity/MonyFlowOption.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entity/MonyFlowOption.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Entity/Operation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Entity/Operation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Factory/DomainFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Factory/DomainFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Factory/IDomainFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Factory/IDomainFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Infrastructure/obj/Debug/net8.0/Infrastructure.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/obj/Debug/net8.0/Infrastructure.AssemblyInfo.cs" afterDir="false" />
@@ -59,7 +48,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Components",
+    "git-widget-placeholder": "Domain",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -97,7 +86,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1762438748032</updated>
-      <workItem from="1762438749505" duration="4606000" />
+      <workItem from="1762438749505" duration="5100000" />
     </task>
     <servers />
   </component>
