@@ -8,12 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ab53ca3-b7ec-48b1-8f5c-6c830b80e830" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/HelpCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/HelpCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BankHSE/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BankHSE/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/AddAccountCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/AddAccountCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/AddCategoryCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/AddCategoryCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/AddOperationCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/AddOperationCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Command/CommandInvoker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Command/CommandInvoker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/Command/TimingCmdDecorator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Command/TimingCmdDecorator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" afterDir="false" />
@@ -49,7 +49,7 @@
   "keyToString": {
     ".NET Project.BankConsoleApp.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Improve",
+    "git-widget-placeholder": "ConsoleAppAddCommandsImprove",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -88,7 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1762438748032</updated>
       <workItem from="1762438749505" duration="8566000" />
-      <workItem from="1762463784996" duration="1574000" />
+      <workItem from="1762463784996" duration="2188000" />
     </task>
     <servers />
   </component>
