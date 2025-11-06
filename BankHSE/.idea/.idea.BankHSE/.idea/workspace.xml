@@ -8,47 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ab53ca3-b7ec-48b1-8f5c-6c830b80e830" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/AddOperationCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/BurnCategoryCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/BurnOperationCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/EditAccountCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/EditCategoryCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/EditOperationCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ExitCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ExportAccountsCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ExportCategoriesCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ExportOperationsCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ImportAccountsCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ImportOperationsCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ListAccountsCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ListCategoriesCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ListOperationsCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ReportByCategoryCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ReportSummaryCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/UpdateBalanceCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tests/BankAccountTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tests/CachedRepositoryProxyTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tests/DomainFactoryTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tests/OperationCsvImporterTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tests/TimingCmdDecoratorTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BankHSE/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BankHSE/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/AddAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/HelpCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/AddCategory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/AddAccountCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/AddOperation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/AddCategoryCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/BurnAccount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/BurnAccountCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/BurnCategory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/BurnOperation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/EditAccount.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/EditCategory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/EditOperation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/Exit.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/ExportAccount.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/ExportCategory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/ExportOperation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/ImportAccount.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/ImportOperation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/ListAccount.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/ListCategory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/ListOperation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/ReportCategory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/ReportSummary.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Commands/UpdateBalance.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankConsoleApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfo.cs" afterDir="false" />
@@ -82,7 +47,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "ConsoleApp",
+    "git-widget-placeholder": "Tests",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -120,7 +85,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1762438748032</updated>
-      <workItem from="1762438749505" duration="6176000" />
+      <workItem from="1762438749505" duration="6732000" />
     </task>
     <servers />
   </component>
