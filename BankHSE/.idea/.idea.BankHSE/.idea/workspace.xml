@@ -8,113 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ab53ca3-b7ec-48b1-8f5c-6c830b80e830" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/BankConsoleApp.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/AddAccount.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/AddCategory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/AddOperation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/BurnAccount.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/BurnCategory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/BurnOperation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/EditAccount.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/EditCategory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/EditOperation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/Exit.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ExportAccount.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ExportCategory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ExportOperation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ImportAccount.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ImportOperation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ListAccount.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ListCategory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ListOperation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ReportCategory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/ReportSummary.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Commands/UpdateBalance.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/obj/BankConsoleApp.csproj.nuget.dgspec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/obj/BankConsoleApp.csproj.nuget.g.props" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/obj/BankConsoleApp.csproj.nuget.g.targets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.GlobalUsings.g.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.assets.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/obj/project.assets.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/obj/project.nuget.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/obj/project.packagespec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/obj/rider.project.restore.info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BankConsoleApp/operations_sample.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Abstraction/IRepo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Abstraction/IReportProc.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Command/ICommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Command/TimingCmdDecorator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Components.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Export/CsvExpProc.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Export/IExpProc.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Service/AccountService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Service/AnalysisService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Service/CategoryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Service/ExportService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Service/OperationService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Service/ReportProc/AmountDescProc.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Service/ReportProc/NameAscProc.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Template/AccountCsvImporter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Template/ImportTemplate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/Template/OperationCsvImporter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.GlobalUsings.g.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/obj/project.packagespec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Domain.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Entity/BankAccount.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Entity/Category.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Entity/MonyFlowOption.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Entity/Operation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Factory/DomainFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Factory/IDomainFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.GlobalUsings.g.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.assets.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/obj/Domain.csproj.nuget.dgspec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/obj/Domain.csproj.nuget.g.props" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/obj/Domain.csproj.nuget.g.targets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/obj/project.assets.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/obj/project.nuget.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/obj/project.packagespec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/obj/rider.project.restore.info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Infrastructure.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Repository/CachedRepositoryProxy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/Repository/StorageRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/obj/Debug/net8.0/Infrastructure.AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/obj/Debug/net8.0/Infrastructure.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/obj/Debug/net8.0/Infrastructure.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/obj/Debug/net8.0/Infrastructure.GlobalUsings.g.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/obj/Debug/net8.0/Infrastructure.assets.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/obj/Infrastructure.csproj.nuget.dgspec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/obj/Infrastructure.csproj.nuget.g.props" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/obj/Infrastructure.csproj.nuget.g.targets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/obj/project.assets.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/obj/project.nuget.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/obj/project.packagespec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Infrastructure/obj/rider.project.restore.info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/Tests.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/UnitTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/obj/Debug/net9.0/.NETCoreApp,Version=v9.0.AssemblyAttributes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/obj/Debug/net9.0/Tests.AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/obj/Debug/net9.0/Tests.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/obj/Debug/net9.0/Tests.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/obj/Debug/net9.0/Tests.GlobalUsings.g.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BankHSE/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BankHSE/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BankHSE/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BankHSE/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankHSE.sln" beforeDir="false" afterPath="$PROJECT_DIR$/BankHSE.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BankConsoleApp/obj/Debug/net8.0/BankConsoleApp.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Components/obj/Debug/net8.0/Components.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repository/CachedRepositoryProxy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repository/CachedRepositoryProxy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/Repository/StorageRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/Repository/StorageRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/obj/Debug/net8.0/Infrastructure.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/obj/Debug/net8.0/Infrastructure.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/obj/Debug/net8.0/Infrastructure.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/obj/Debug/net8.0/Infrastructure.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/obj/Debug/net9.0/Tests.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/obj/Debug/net9.0/Tests.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/obj/Debug/net9.0/Tests.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/obj/Debug/net9.0/Tests.AssemblyInfoInputs.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +44,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Infrastructure",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -176,7 +82,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1762438748032</updated>
-      <workItem from="1762438749505" duration="2686000" />
+      <workItem from="1762438749505" duration="3341000" />
     </task>
     <servers />
   </component>
