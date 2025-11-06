@@ -44,8 +44,8 @@ namespace BankConsoleApp.Commands
             var typeInput = (Console.ReadLine() ?? "").Trim().ToLowerInvariant();
             var type = typeInput switch
             {
-                "income" => MonyFlowOption.Income,
-                "expense" => MonyFlowOption.Expense,
+                "income" => MoneyFlowOption.Income,
+                "expense" => MoneyFlowOption.Expense,
                 _ => throw new InvalidOperationException("Некорректный тип.")
             };
 

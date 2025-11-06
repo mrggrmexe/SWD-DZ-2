@@ -9,7 +9,7 @@ namespace Domain.Entity
     public class Operation
     {
         public Guid Id { get; }
-        public MonyFlowOption Type { get; }
+        public MoneyFlowOption Type { get; }
         public Guid BankAccountId { get; }
         public Guid CategoryId { get; }
         public decimal Amount { get; }
@@ -20,7 +20,7 @@ namespace Domain.Entity
 
         public Operation(
             Guid id,
-            MonyFlowOption type,
+            MoneyFlowOption type,
             Guid bankAccountId,
             Guid categoryId,
             decimal amount,
@@ -46,7 +46,7 @@ namespace Domain.Entity
         }
 
         internal Operation(
-            MonyFlowOption type,
+            MoneyFlowOption type,
             Guid bankAccountId,
             Guid categoryId,
             decimal amount,

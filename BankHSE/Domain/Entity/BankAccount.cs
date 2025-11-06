@@ -1,22 +1,20 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 namespace Domain.Entity
 {
     /// <summary>
     /// Банковский счёт пользователя.
-    /// Держит инварианты по имени и балансу.
+    /// Держит инварианты по имени и корректно обновляемому балансу.
+    /// Потокобезопасен относительно своих операций.
     /// </summary>
     public class BankAccount
     {
+        private readonly object _sync = new();
+
         public Guid Id { get; }
         public string Name { get; private set; }
 
         /// <summary>
         /// Текущий баланс счёта.
-        /// В учебных целях поддерживается как поле,
-        /// которое обновляется при применении операций.
+        /// Обновляется только через доменные методы.
         /// </summary>
         public decimal Balance { get; private set; }
 
@@ -27,9 +25,8 @@ namespace Domain.Entity
             if (id == Guid.Empty)
                 throw new ArgumentException("Id must be non-empty.", nameof(id));
 
-            SetName(name);
+            Name = ValidateName(name);
             Balance = balance;
-
             Id = id;
         }
 
@@ -47,67 +44,92 @@ namespace Domain.Entity
 
         public void Rename(string newName)
         {
-            SetName(newName);
+            var valid = ValidateName(newName);
+
+            lock (_sync)
+            {
+                Name = valid;
+            }
         }
 
         /// <summary>
         /// Применяет операцию к счёту и обновляет баланс.
+        /// Бросает исключение при несоответствии счёта или некорректном типе операции.
         /// </summary>
         public void ApplyOperation(Operation operation)
         {
-            if (operation == null)
+            if (operation is null)
                 throw new ArgumentNullException(nameof(operation));
 
             if (operation.BankAccountId != Id)
                 throw new InvalidOperationException("Operation does not belong to this account.");
 
-            if (operation.Type == MonyFlowOption.Income)
+            lock (_sync)
             {
-                Balance += operation.Amount;
-            }
-            else if (operation.Type == MonyFlowOption.Expense)
-            {
-                Balance -= operation.Amount;
-            }
-            else
-            {
-                throw new InvalidOperationException("Unknown money flow type.");
+                switch (operation.Type)
+                {
+                    case MoneyFlowOption.Income:
+                        Balance += operation.Amount;
+                        break;
+
+                    case MoneyFlowOption.Expense:
+                        Balance -= operation.Amount;
+                        break;
+
+                    default:
+                        throw new InvalidOperationException("Unknown money flow type.");
+                }
             }
         }
 
         /// <summary>
         /// Полный пересчёт баланса по набору операций.
+        /// Используется для восстановления согласованности данных.
+        /// Операции по другим счетам игнорируются.
         /// </summary>
         public void RecalculateBalance(IEnumerable<Operation> operations)
         {
-            if (operations == null)
+            if (operations is null)
                 throw new ArgumentNullException(nameof(operations));
-
-            var related = operations.Where(o => o.BankAccountId == Id);
 
             decimal result = 0m;
 
-            foreach (var op in related)
+            foreach (var op in operations)
             {
-                if (op.Type == MonyFlowOption.Income)
-                    result += op.Amount;
-                else if (op.Type == MonyFlowOption.Expense)
-                    result -= op.Amount;
+                if (op.BankAccountId != Id)
+                    continue;
+
+                switch (op.Type)
+                {
+                    case MoneyFlowOption.Income:
+                        result += op.Amount;
+                        break;
+
+                    case MoneyFlowOption.Expense:
+                        result -= op.Amount;
+                        break;
+
+                    default:
+                        throw new InvalidOperationException("Unknown money flow type.");
+                }
             }
 
-            Balance = result;
+            lock (_sync)
+            {
+                Balance = result;
+            }
         }
 
         #endregion
 
         #region Приватные помощники
 
-        private void SetName(string name)
+        private static string ValidateName(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("Account name must be non-empty.", nameof(name));
 
-            Name = name.Trim();
+            return name.Trim();
         }
 
         #endregion

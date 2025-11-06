@@ -29,7 +29,7 @@ namespace Components.Template
                 if (parts.Length < 6) continue;
 
                 var id = Guid.Parse(parts[0]);
-                var type = Enum.Parse<MonyFlowOption>(parts[1], ignoreCase: true);
+                var type = Enum.Parse<MoneyFlowOption>(parts[1], ignoreCase: true);
                 var accountId = Guid.Parse(parts[2]);
                 var categoryId = Guid.Parse(parts[3]);
                 var amount = decimal.Parse(parts[4], CultureInfo.InvariantCulture);
