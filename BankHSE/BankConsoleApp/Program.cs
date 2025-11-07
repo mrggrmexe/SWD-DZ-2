@@ -121,21 +121,16 @@ namespace BankConsoleApp
 
             Register(invoker, new UpdateBalanceCommand(accountRepo, operationRepo));
 
+            // служебные — без измерения времени
             Register(invoker, new HelpCommand(invoker), measure: false);
             Register(invoker, new ExitCommand(exitState), measure: false);
-
-            // 11. Обработка Ctrl+C — мягкое завершение
-            Console.CancelKeyPress += (_, e) =>
-            {
-                e.Cancel = true;
-                exitState.IsRequested = true;
-                Log("Запрошено завершение (Ctrl+C).");
-            };
 
             // --- Main loop ---
 
             Console.WriteLine("HSE Bank · Finance Tracking Console");
-            Console.WriteLine("Введите 'help' для списка команд, 'exit' для выхода.");
+            Console.WriteLine("Для выхода используйте команду: exit");
+            Console.WriteLine("Также доступны синонимы: q, quit");
+            Console.WriteLine("Введите 'help' для списка команд.");
             Console.WriteLine();
 
             const StringComparison ordIgnore = StringComparison.OrdinalIgnoreCase;
@@ -158,7 +153,7 @@ namespace BankConsoleApp
 
                 if (input is null)
                 {
-                    // EOF (например, Ctrl+Z в Windows) — завершаем аккуратно.
+                    // EOF (например, закрытие stdin) — завершаем аккуратно.
                     Log("Обнаружен конец ввода. Завершение работы.");
                     break;
                 }
@@ -167,16 +162,18 @@ namespace BankConsoleApp
                 if (cmdName.Length == 0)
                     continue;
 
-                // Дополнительные синонимы выхода
-                if (cmdName.Equals("q", ordIgnore) || cmdName.Equals("quit", ordIgnore))
+                // Явные команды выхода (без зависимости от Ctrl+C / платформы)
+                if (cmdName.Equals("exit", ordIgnore) ||
+                    cmdName.Equals("q", ordIgnore) ||
+                    cmdName.Equals("quit", ordIgnore))
                 {
                     exitState.IsRequested = true;
                     continue;
                 }
 
-                // TryExecute теперь:
-                // - вернет false, если команда не найдена,
-                // - вернет false, если внутри команды было исключение (оно залогировано OnCommandError).
+                // TryExecute:
+                // - false, если команда не найдена,
+                // - false, если внутри была ошибка (логируется OnCommandError).
                 if (!invoker.TryExecute(cmdName))
                 {
                     Console.WriteLine("Команда не найдена или завершилась с ошибкой. Введите 'help' для списка доступных команд.");
@@ -198,7 +195,6 @@ namespace BankConsoleApp
 
         /// <summary>
         /// Регистрация команд с опциональным оборачиванием в TimingCmdDecorator.
-        /// Защита изменения служебных комманд
         /// </summary>
         private static void Register(CommandInvoker? invoker, ICommand? command, bool measure = true)
         {
