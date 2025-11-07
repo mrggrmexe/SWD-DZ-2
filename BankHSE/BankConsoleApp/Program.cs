@@ -198,6 +198,7 @@ namespace BankConsoleApp
 
         /// <summary>
         /// Регистрация команд с опциональным оборачиванием в TimingCmdDecorator.
+        /// Защита изменения служебных комманд
         /// </summary>
         private static void Register(CommandInvoker? invoker, ICommand? command, bool measure = true)
         {
