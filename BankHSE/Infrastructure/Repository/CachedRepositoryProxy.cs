@@ -1,15 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Components.Abstraction;
 
 namespace Infrastructure.Repository
 {
     /// <summary>
-    /// Прокси-репозиторий с in-memory кэшем поверх любого IRepo&lt;T&gt;.
-    /// Демонстрирует паттерн Proxy:
-    /// - читает из кэша при повторных обращениях;
-    /// - инвалидирует кэш при изменениях.
+    /// Потокобезопасный прокси-репозиторий с in-memory кэшем поверх любого IRepo&lt;T&gt;.
+    /// - Кэширует результаты GetById.
+    /// - Кэширует GetAll (ленивая материализация).
+    /// - Инвалидирует кэш при изменениях.
     /// </summary>
     /// <typeparam name="T">Тип доменной сущности.</typeparam>
     public class CachedRepositoryProxy<T> : IRepo<T>
@@ -17,9 +14,14 @@ namespace Infrastructure.Repository
         private readonly IRepo<T> _inner;
         private readonly Func<T, Guid> _idSelector;
 
+        // Кэш по Id
         private readonly Dictionary<Guid, T> _cacheById = new();
+
+        // Кэш для GetAll
         private IReadOnlyCollection<T>? _cacheAll;
         private bool _allDirty = true;
+
+        private readonly object _sync = new();
 
         public CachedRepositoryProxy(IRepo<T> inner, Func<T, Guid> idSelector)
         {
@@ -32,11 +34,20 @@ namespace Infrastructure.Repository
             if (entity is null)
                 throw new ArgumentNullException(nameof(entity));
 
-            _inner.Add(entity);
-
             var id = _idSelector(entity);
-            _cacheById[id] = entity;
-            _allDirty = true;
+
+            lock (_sync)
+            {
+                // Пишем сначала во внутренний репозиторий.
+                _inner.Add(entity);
+
+                // Обновляем кэш по Id.
+                _cacheById[id] = entity;
+
+                // Инвалидируем кэш GetAll, он потенциально устарел.
+                _cacheAll = null;
+                _allDirty = true;
+            }
         }
 
         public void Update(T entity)
@@ -44,77 +55,104 @@ namespace Infrastructure.Repository
             if (entity is null)
                 throw new ArgumentNullException(nameof(entity));
 
-            _inner.Update(entity);
-
             var id = _idSelector(entity);
-            _cacheById[id] = entity;
-            _allDirty = true;
+
+            lock (_sync)
+            {
+                _inner.Update(entity);
+
+                _cacheById[id] = entity;
+                _cacheAll = null;
+                _allDirty = true;
+            }
         }
 
         public void Delete(Guid id)
         {
-            _inner.Delete(id);
+            lock (_sync)
+            {
+                _inner.Delete(id);
 
-            _cacheById.Remove(id);
-            _allDirty = true;
+                _cacheById.Remove(id);
+                _cacheAll = null;
+                _allDirty = true;
+            }
         }
 
         public T? GetById(Guid id)
         {
-            if (_cacheById.TryGetValue(id, out var cached))
-                return cached;
-
-            var entity = _inner.GetById(id);
-            if (entity is not null)
+            lock (_sync)
             {
-                _cacheById[id] = entity;
-            }
+                if (_cacheById.TryGetValue(id, out var cached))
+                    return cached;
 
-            return entity;
+                // Читаем из внутреннего репозитория один раз.
+                var entity = _inner.GetById(id);
+
+                if (entity is not null)
+                {
+                    _cacheById[id] = entity;
+                }
+
+                return entity;
+            }
         }
 
         public IReadOnlyCollection<T> GetAll()
         {
-            if (!_allDirty && _cacheAll is not null)
-                return _cacheAll;
-
-            var all = _inner.GetAll() ?? Array.Empty<T>();
-            var list = all.ToList();
-
-            _cacheAll = list.AsReadOnly();
-            _cacheById.Clear();
-
-            foreach (var e in list)
+            lock (_sync)
             {
-                var id = _idSelector(e);
-                _cacheById[id] = e;
-            }
+                if (!_allDirty && _cacheAll is not null)
+                    return _cacheAll;
 
-            _allDirty = false;
-            return _cacheAll;
+                var all = _inner.GetAll();
+                var list = all as List<T> ?? all.ToList();
+
+                // Перестраиваем оба кэша единообразно.
+                _cacheById.Clear();
+                foreach (var e in list)
+                {
+                    var id = _idSelector(e);
+                    _cacheById[id] = e;
+                }
+
+                _cacheAll = list.AsReadOnly();
+                _allDirty = false;
+
+                return _cacheAll;
+            }
         }
 
         public bool Exists(Guid id)
         {
-            if (_cacheById.ContainsKey(id))
-                return true;
-
-            var exists = _inner is { } && _inner.GetById(id) is not null;
-            if (exists)
+            lock (_sync)
             {
-                var entity = _inner.GetById(id);
-                if (entity is not null)
-                    _cacheById[id] = entity;
-            }
+                if (_cacheById.ContainsKey(id))
+                    return true;
 
-            return exists;
+                // Однократный вызов внутреннего репозитория.
+                var entity = _inner.GetById(id);
+                if (entity is null)
+                    return false;
+
+                // Если нашли, кладём в кэш.
+                var actualId = _idSelector(entity);
+                _cacheById[actualId] = entity;
+                return true;
+            }
         }
 
+        /// <summary>
+        /// Полная очистка кэша. Не трогает данные во внутреннем репозитории.
+        /// </summary>
         public void ClearCache()
         {
-            _cacheById.Clear();
-            _cacheAll = null;
-            _allDirty = true;
+            lock (_sync)
+            {
+                _cacheById.Clear();
+                _cacheAll = null;
+                _allDirty = true;
+            }
         }
     }
 }

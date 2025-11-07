@@ -12,7 +12,7 @@ namespace Components.Command
         private readonly ICommand _inner;
         private readonly Action<string>? _log;
 
-        public TimingCmdDecorator(ICommand inner, Action<string>? log = null)
+        public TimingCmdDecorator(ICommand? inner, Action<string>? log = null)
         {
             _inner = inner ?? throw new ArgumentNullException(nameof(inner));
             _log = log;

@@ -31,7 +31,7 @@ namespace Components.Service
         public Operation CreateOperation(
             Guid accountId,
             Guid categoryId,
-            MonyFlowOption type,
+            MoneyFlowOption type,
             decimal amount,
             DateTime date,
             string? description)

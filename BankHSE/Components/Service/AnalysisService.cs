@@ -25,10 +25,10 @@ namespace Components.Service
             var range = _operations.GetAll()
                 .Where(o => o.Date >= from && o.Date <= to);
 
-            var income = range.Where(o => o.Type == MonyFlowOption.Income)
+            var income = range.Where(o => o.Type == MoneyFlowOption.Income)
                 .Sum(o => o.Amount);
 
-            var expense = range.Where(o => o.Type == MonyFlowOption.Expense)
+            var expense = range.Where(o => o.Type == MoneyFlowOption.Expense)
                 .Sum(o => o.Amount);
 
             return (income, expense, income - expense);
