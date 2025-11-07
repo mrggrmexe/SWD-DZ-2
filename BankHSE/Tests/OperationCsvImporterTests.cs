@@ -25,8 +25,8 @@ namespace FinanceTracker.Tests
                 var result = importer.Import(path);
 
                 Assert.Equal(2, result.Count);
-                Assert.Contains(result, o => o.Type == MonyFlowOption.Income && o.Amount == 100.5m);
-                Assert.Contains(result, o => o.Type == MonyFlowOption.Expense && o.Amount == 50.0m);
+                Assert.Contains(result, o => o.Type == MoneyFlowOption.Income && o.Amount == 100.5m);
+                Assert.Contains(result, o => o.Type == MoneyFlowOption.Expense && o.Amount == 50.0m);
             }
             finally
             {

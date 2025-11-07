@@ -1,4 +1,3 @@
-using System;
 using Components.Command;
 using Components.Service;
 using Domain.Entity;
@@ -19,20 +18,51 @@ namespace BankConsoleApp.Commands
         public void Execute()
         {
             Console.Write("Название категории: ");
-            var name = Console.ReadLine() ?? string.Empty;
+            var name = (Console.ReadLine() ?? string.Empty).Trim();
 
-            Console.Write("Тип (income/expense): ");
-            var typeInput = (Console.ReadLine() ?? "").Trim().ToLowerInvariant();
-
-            var type = typeInput switch
+            if (string.IsNullOrWhiteSpace(name))
             {
-                "income" => MonyFlowOption.Income,
-                "expense" => MonyFlowOption.Expense,
-                _ => throw new InvalidOperationException("Некорректный тип. Ожидается income или expense.")
-            };
+                Console.WriteLine("Категория не создана: имя не может быть пустым.");
+                return;
+            }
 
-            var cat = _categoryService.CreateCategory(name, type);
-            Console.WriteLine($"Категория создана: {cat.Id} | {cat.Name} | {cat.FlowType}");
+            var type = ReadFlowType();
+            if (type == MoneyFlowOption.Unknown)
+            {
+                Console.WriteLine("Категория не создана из-за некорректного типа.");
+                return;
+            }
+
+            try
+            {
+                var cat = _categoryService.CreateCategory(name, type);
+                Console.WriteLine($"Категория создана: {cat.Id} | {cat.Name} | {cat.FlowType}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Не удалось создать категорию: {ex.Message}");
+            }
+        }
+
+        private static MoneyFlowOption ReadFlowType()
+        {
+            const int maxAttempts = 3;
+
+            for (var attempt = 0; attempt < maxAttempts; attempt++)
+            {
+                Console.Write("Тип (income/expense): ");
+                var input = (Console.ReadLine() ?? string.Empty).Trim().ToLowerInvariant();
+
+                if (input is "income" or "i" or "+")
+                    return MoneyFlowOption.Income;
+
+                if (input is "expense" or "e" or "-")
+                    return MoneyFlowOption.Expense;
+
+                Console.WriteLine("Некорректный тип. Ожидается: income или expense.");
+            }
+
+            return MoneyFlowOption.Unknown;
         }
     }
 }

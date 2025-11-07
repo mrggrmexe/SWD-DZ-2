@@ -1,4 +1,4 @@
-using System;
+using System.Globalization;
 using Components.Command;
 using Components.Service;
 
@@ -18,14 +18,38 @@ namespace BankConsoleApp.Commands
         public void Execute()
         {
             Console.Write("Название счёта: ");
-            var name = Console.ReadLine() ?? string.Empty;
+            var name = (Console.ReadLine() ?? string.Empty).Trim();
 
-            Console.Write("Начальный баланс (опционально, по умолчанию 0): ");
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                Console.WriteLine("Счёт не создан: имя не может быть пустым.");
+                return;
+            }
+
+            Console.Write("Начальный баланс (по умолчанию 0): ");
             var balanceInput = Console.ReadLine();
-            decimal.TryParse(balanceInput, out var balance);
 
-            var account = _accountService.CreateAccount(name, balance);
-            Console.WriteLine($"Счёт создан: {account.Id} | {account.Name} | Баланс: {account.Balance}");
+            decimal balance = 0m;
+            if (!string.IsNullOrWhiteSpace(balanceInput))
+            {
+                // Пытаемся парсить в инвариантной и локальной культурe
+                if (!decimal.TryParse(balanceInput, NumberStyles.Number, CultureInfo.InvariantCulture, out balance) &&
+                    !decimal.TryParse(balanceInput, NumberStyles.Number, CultureInfo.CurrentCulture, out balance))
+                {
+                    Console.WriteLine("Некорректное значение баланса. Используется 0.");
+                    balance = 0m;
+                }
+            }
+
+            try
+            {
+                var account = _accountService.CreateAccount(name, balance);
+                Console.WriteLine($"Счёт создан: {account.Id} | {account.Name} | Баланс: {account.Balance}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Не удалось создать счёт: {ex.Message}");
+            }
         }
     }
 }

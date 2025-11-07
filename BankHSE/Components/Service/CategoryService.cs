@@ -20,7 +20,7 @@ namespace Components.Service
             _factory = factory ?? throw new ArgumentNullException(nameof(factory));
         }
 
-        public Category CreateCategory(string name, MonyFlowOption flowType)
+        public Category CreateCategory(string name, MoneyFlowOption flowType)
         {
             var category = _factory.CreateCategory(name, flowType);
             _categories.Add(category);

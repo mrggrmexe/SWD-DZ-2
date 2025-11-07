@@ -10,11 +10,11 @@ namespace Domain.Entity
     {
         public Guid Id { get; }
         public string Name { get; private set; }
-        public MonyFlowOption FlowType { get; }
+        public MoneyFlowOption FlowType { get; }
 
         #region Конструкторы
 
-        public Category(Guid id, string name, MonyFlowOption flowType)
+        public Category(Guid id, string name, MoneyFlowOption flowType)
         {
             if (id == Guid.Empty)
                 throw new ArgumentException("Id must be non-empty.", nameof(id));
@@ -24,7 +24,7 @@ namespace Domain.Entity
             Id = id;
         }
 
-        internal Category(string name, MonyFlowOption flowType)
+        internal Category(string name, MoneyFlowOption flowType)
             : this(Guid.NewGuid(), name, flowType)
         {
         }

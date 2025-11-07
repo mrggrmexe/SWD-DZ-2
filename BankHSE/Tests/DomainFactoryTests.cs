@@ -29,21 +29,21 @@ namespace FinanceTracker.Tests
         [Fact]
         public void CreateCategory_ValidData_Success()
         {
-            var cat = _factory.CreateCategory("Зарплата", MonyFlowOption.Income);
+            var cat = _factory.CreateCategory("Зарплата", MoneyFlowOption.Income);
 
             Assert.NotEqual(Guid.Empty, cat.Id);
             Assert.Equal("Зарплата", cat.Name);
-            Assert.Equal(MonyFlowOption.Income, cat.FlowType);
+            Assert.Equal(MoneyFlowOption.Income, cat.FlowType);
         }
 
         [Fact]
         public void CreateOperation_CategoryTypeMismatch_Throws()
         {
             var acc = _factory.CreateBankAccount("Основной");
-            var cat = _factory.CreateCategory("Кафе", MonyFlowOption.Expense);
+            var cat = _factory.CreateCategory("Кафе", MoneyFlowOption.Expense);
 
             Assert.Throws<InvalidOperationException>(() =>
-                _factory.CreateOperation(acc, cat, MonyFlowOption.Income, 100m, DateTime.Today, "оценка"));
+                _factory.CreateOperation(acc, cat, MoneyFlowOption.Income, 100m, DateTime.Today, "оценка"));
         }
 
         [Fact]
@@ -54,13 +54,13 @@ namespace FinanceTracker.Tests
             var catId = Guid.NewGuid();
             var date = new DateTime(2025, 1, 1);
 
-            var op = _factory.RestoreOperation(id, MonyFlowOption.Expense, accId, catId, 250m, date, "test");
+            var op = _factory.RestoreOperation(id, MoneyFlowOption.Expense, accId, catId, 250m, date, "test");
 
             Assert.Equal(id, op.Id);
             Assert.Equal(accId, op.BankAccountId);
             Assert.Equal(catId, op.CategoryId);
             Assert.Equal(250m, op.Amount);
-            Assert.Equal(MonyFlowOption.Expense, op.Type);
+            Assert.Equal(MoneyFlowOption.Expense, op.Type);
             Assert.Equal(date, op.Date);
             Assert.Equal("test", op.Description);
         }

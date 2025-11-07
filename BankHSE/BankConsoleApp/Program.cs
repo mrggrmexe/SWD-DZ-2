@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Text;
+using BankConsoleApp.Commands;
 using Components.Abstraction;
 using Components.Command;
 using Components.Export;
@@ -9,7 +9,6 @@ using Components.Template;
 using Domain.Entity;
 using Domain.Factory;
 using Infrastructure.Repository;
-using BankConsoleApp.Commands;
 
 namespace BankConsoleApp
 {
@@ -17,8 +16,22 @@ namespace BankConsoleApp
     {
         private static void Main()
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
 
+            try
+            {
+                Run();
+            }
+            catch (Exception ex)
+            {
+                // Финальный страховочный барьер: чтобы приложение не падало без сообщений.
+                Console.WriteLine("Критическая ошибка приложения:");
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private static void Run()
+        {
             // --- Composition Root ---
 
             // 1. Фабрика домена
@@ -61,15 +74,25 @@ namespace BankConsoleApp
             var accountImporter = new AccountCsvImporter();
             var operationImporter = new OperationCsvImporter();
 
-            // 7. Командный инвокер
-            var invoker = new CommandInvoker();
-
-            // Логгер для декоратора времени
-            void Log(string msg) => Console.WriteLine(msg);
-
-            // Регистрация команд
+            // 7. Состояние выхода
             var exitState = new ExitState();
 
+            // 8. Логгер и обработчик ошибок команд
+            void Log(string msg)
+            {
+                if (!string.IsNullOrWhiteSpace(msg))
+                    Console.WriteLine(msg);
+            }
+
+            void OnCommandError(Exception ex)
+            {
+                Console.WriteLine($"Ошибка при выполнении команды: {ex.Message}");
+            }
+
+            // 9. Командный инвокер (стрессоустойчивый)
+            var invoker = new CommandInvoker(Log, OnCommandError);
+
+            // 10. Регистрация команд через общий метод
             Register(invoker, new AddAccountCommand(accountService));
             Register(invoker, new AddCategoryCommand(categoryService));
             Register(invoker, new AddOperationCommand(accountService, categoryService, operationService));
@@ -98,43 +121,62 @@ namespace BankConsoleApp
 
             Register(invoker, new UpdateBalanceCommand(accountRepo, operationRepo));
 
-            Register(invoker, new HelpCommand(invoker));
-            Register(invoker, new ExitCommand(exitState));
-
-            // Обёртка декоратором времени для ключевых сценариев:
-            void Register(CommandInvoker cmdInvoker, Components.Command.ICommand cmd)
-            {
-                // замеряем только "бизнесовые" сценарии, help/exit можно не оборачивать
-                if (!string.Equals(cmd.Name, "help", StringComparison.OrdinalIgnoreCase) &&
-                    !string.Equals(cmd.Name, "exit", StringComparison.OrdinalIgnoreCase))
-                {
-                    cmdInvoker.Register(new TimingCmdDecorator(cmd, Log));
-                }
-                else
-                {
-                    cmdInvoker.Register(cmd);
-                }
-            }
+            // служебные — без измерения времени
+            Register(invoker, new HelpCommand(invoker), measure: false);
+            Register(invoker, new ExitCommand(exitState), measure: false);
 
             // --- Main loop ---
 
             Console.WriteLine("HSE Bank · Finance Tracking Console");
-            Console.WriteLine("Введите 'help' для списка команд, 'exit' для выхода.");
+            Console.WriteLine("Для выхода используйте команду: exit");
+            Console.WriteLine("Также доступны синонимы: q, quit");
+            Console.WriteLine("Введите 'help' для списка команд.");
             Console.WriteLine();
+
+            const StringComparison ordIgnore = StringComparison.OrdinalIgnoreCase;
 
             while (!exitState.IsRequested)
             {
                 Console.Write("> ");
-                var input = Console.ReadLine();
 
-                if (string.IsNullOrWhiteSpace(input))
-                    continue;
+                string? input;
+                try
+                {
+                    input = Console.ReadLine();
+                }
+                catch (Exception ex) when (ex is IOException || ex is ObjectDisposedException)
+                {
+                    // Поток ввода недоступен — корректно завершаем.
+                    Log("Поток ввода недоступен. Завершение работы.");
+                    break;
+                }
+
+                if (input is null)
+                {
+                    // EOF (например, закрытие stdin) — завершаем аккуратно.
+                    Log("Обнаружен конец ввода. Завершение работы.");
+                    break;
+                }
 
                 var cmdName = input.Trim();
+                if (cmdName.Length == 0)
+                    continue;
 
+                // Явные команды выхода (без зависимости от Ctrl+C / платформы)
+                if (cmdName.Equals("exit", ordIgnore) ||
+                    cmdName.Equals("q", ordIgnore) ||
+                    cmdName.Equals("quit", ordIgnore))
+                {
+                    exitState.IsRequested = true;
+                    continue;
+                }
+
+                // TryExecute:
+                // - false, если команда не найдена,
+                // - false, если внутри была ошибка (логируется OnCommandError).
                 if (!invoker.TryExecute(cmdName))
                 {
-                    Console.WriteLine("Неизвестная команда. Введите 'help' для списка доступных команд.");
+                    Console.WriteLine("Команда не найдена или завершилась с ошибкой. Введите 'help' для списка доступных команд.");
                 }
 
                 Console.WriteLine();
@@ -146,9 +188,38 @@ namespace BankConsoleApp
         /// <summary>
         /// Общий разделяемый объект для ExitCommand.
         /// </summary>
-        private class ExitState
+        private sealed class ExitState
         {
             public bool IsRequested { get; set; }
+        }
+
+        /// <summary>
+        /// Регистрация команд с опциональным оборачиванием в TimingCmdDecorator.
+        /// </summary>
+        private static void Register(CommandInvoker? invoker, ICommand? command, bool measure = true)
+        {
+            if (invoker is null || command is null)
+                return;
+
+            var name = command.Name;
+            if (string.IsNullOrWhiteSpace(name))
+                return;
+
+            // Не измеряем служебные команды или если явно отключено.
+            if (!measure ||
+                name.Equals("help", StringComparison.OrdinalIgnoreCase) ||
+                name.Equals("exit", StringComparison.OrdinalIgnoreCase))
+            {
+                invoker.Register(command);
+            }
+            else
+            {
+                invoker.Register(new TimingCmdDecorator(command, msg =>
+                {
+                    if (!string.IsNullOrWhiteSpace(msg))
+                        Console.WriteLine(msg);
+                }));
+            }
         }
     }
 }
